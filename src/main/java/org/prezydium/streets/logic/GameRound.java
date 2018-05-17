@@ -47,7 +47,7 @@ public class GameRound {
         } else {
             while (x > -1) {
                 stringBuilder.setCharAt(x, guessedChar);
-                x++;
+                x = streetToGuess.indexOf(guessedChar, x + 1);
             }
         }
         actualGuessedLetters = stringBuilder.toString();
