@@ -1250,7 +1250,6 @@ public class StreetsRepository {
             "BASTION ŚW. ELŻBIETY",
             "BAŚNIOWA",
             "BATALIONÓW CHŁOPSKICH",
-            "BATOREGO",
             "BEDNARSKA",
             "BENZYNOWA",
             "FRANCISZKA MAMUSZKI",

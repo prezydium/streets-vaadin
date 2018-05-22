@@ -12,7 +12,7 @@ public class GameView extends VerticalLayout implements View {
     private GameRound gameRound;
     private Label header = new Label("Ulice Gdańska");
     private Label chancesLabel = new Label("");
-    private Label guessedWordLabel = new Label("");
+    private MainPanel mainPanel = new MainPanel();
     private TextField textFieldGuess = new TextField("wpisz literę:");
     private Button makeGuessButton = new Button("Zgadnij!", this::clickSubmitButton);
     private Button aboutButton = new Button("Wyjaśnienia", this::clickAboutButton);
@@ -24,10 +24,11 @@ public class GameView extends VerticalLayout implements View {
 
     @Override
     public void enter(ViewChangeListener.ViewChangeEvent event) {
-        guessedWordLabel.setCaption(gameRound.getActualGuessedLetters());
+        mainPanel.setGuessedLetters(gameRound.getActualGuessedLetters());
+        mainPanel.setWidth("50%");
         setSpacing(true);
         this.setDefaultComponentAlignment(Alignment.MIDDLE_CENTER);
-        this.addComponents(header, aboutButton, chancesLabel, guessedWordLabel, textFieldGuess, makeGuessButton, errors);
+        this.addComponents(header, aboutButton, chancesLabel, mainPanel, textFieldGuess, makeGuessButton, errors);
     }
 
     private void clickSubmitButton(Button.ClickEvent clickEvent) {
@@ -36,7 +37,7 @@ public class GameView extends VerticalLayout implements View {
         } else {
             Character charToGuess = textFieldGuess.getValue().charAt(0);
             gameRound.gameTurn(charToGuess);
-            guessedWordLabel.setCaption(gameRound.getActualGuessedLetters());
+            mainPanel.setGuessedLetters(gameRound.getActualGuessedLetters());
             chancesLabel.setCaption(Integer.toString(gameRound.getActualChances()));
         }
     }
@@ -44,7 +45,4 @@ public class GameView extends VerticalLayout implements View {
     private void clickAboutButton(Button.ClickEvent clickEvent){
         UI.getCurrent().addWindow(new AboutWindow());
     }
-
-
-
 }

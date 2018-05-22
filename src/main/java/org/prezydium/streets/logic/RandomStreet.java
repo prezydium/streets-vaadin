@@ -13,6 +13,4 @@ public class RandomStreet {
         int randomNumber = new Random().nextInt(boundary);
         return streets.get(randomNumber);
     }
-
-
 }
