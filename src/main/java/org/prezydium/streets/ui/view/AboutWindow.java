@@ -3,9 +3,7 @@ package org.prezydium.streets.ui.view;
 import com.vaadin.event.FieldEvents;
 import com.vaadin.ui.*;
 
-import java.awt.event.KeyEvent;
-
-public class AboutWindow extends Window{
+public class AboutWindow extends Window {
 
     private VerticalLayout verticalLayout = new VerticalLayout();
 
@@ -17,7 +15,7 @@ public class AboutWindow extends Window{
     private Panel panel = new Panel(body);
 
 
-    public AboutWindow(){
+    public AboutWindow() {
         this.addBlurListener((FieldEvents.BlurListener) event -> UI.getCurrent().removeWindow(this));
         this.setWidth("50%");
         body.setWidth("100%");
