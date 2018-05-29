@@ -14,11 +14,13 @@ public class GuessedLettersDisplay extends VerticalLayout {
     private String hitLetters = "Póki co trafiłeś litery: ";
     private String missedLetters = "Tych liter na pewno nie ma: ";
 
-    private Label guessedHitLettersDisplay = new Label(hitLetters);
-    private Label guessedMissedLettersDisplay = new Label(missedLetters);
+    private Label guessedHitLettersDisplay = new Label();
+    private Label guessedMissedLettersDisplay = new Label();
 
     public GuessedLettersDisplay() {
         remainingChancesLabel.setCaption(remainingChances + 10);
+        guessedHitLettersDisplay.setCaption(hitLetters);
+        guessedMissedLettersDisplay.setCaption(missedLetters);
         addComponents(remainingChancesLabel, guessedHitLettersDisplay, guessedMissedLettersDisplay);
     }
 
