@@ -1,8 +1,7 @@
 package org.prezydium.streets.logic;
 
 
-import com.vaadin.ui.UI;
-import org.prezydium.streets.ui.view.LostWindow;
+import org.prezydium.streets.ui.view.GuessedLettersDisplay;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -35,15 +34,21 @@ public class GameRound {
         this.actualChances = actualChances;
     }
 
-    public void gameTurn(Character guessedChar){
-        if (actualChances < 0) throw new IllegalStateException("Chances cant be less than 0!") ;
-        if (!makeGuess(guessedChar)) actualChances--;
+    public void gameTurn(Character guessedChar, GuessedLettersDisplay guessedLettersDisplay) {
+        if (actualChances < 0) throw new IllegalStateException("Chances cant be less than 0!");
+        boolean hit = false;
+        if (!makeGuess(guessedChar)) {
+            actualChances--;
+        } else {
+            hit = true;
+        }
+        guessedLettersDisplay.actualise(guessedChar, actualChances, hit);
         if (actualChances <= 0) new LostGame(streetToGuess);
-
     }
 
     private boolean makeGuess(Character guessedChar) {
         guessedChar = Character.toUpperCase(guessedChar);
+        streetToGuess = streetToGuess.toUpperCase();
         StringBuilder stringBuilder = new StringBuilder(actualGuessedLetters);
         int x = streetToGuess.indexOf(guessedChar);
         if (x == -1) {
