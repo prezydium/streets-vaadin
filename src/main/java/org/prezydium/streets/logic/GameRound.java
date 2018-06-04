@@ -1,6 +1,7 @@
 package org.prezydium.streets.logic;
 
 
+import org.prezydium.streets.ui.StreetsUI;
 import org.prezydium.streets.ui.view.GuessedLettersDisplay;
 import org.springframework.stereotype.Component;
 
@@ -43,7 +44,10 @@ public class GameRound {
             hit = true;
         }
         guessedLettersDisplay.actualise(guessedChar, actualChances, hit);
-        if (actualChances <= 0) new LostGame(streetToGuess);
+        if (actualChances <= 0){
+            new LostGame().createInfoWindow(streetToGuess);
+            StreetsUI.resetGame();
+        }
     }
 
     private boolean makeGuess(Character guessedChar) {

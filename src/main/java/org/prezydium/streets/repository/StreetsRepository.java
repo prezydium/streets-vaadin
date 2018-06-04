@@ -1412,7 +1412,6 @@ public class StreetsRepository {
             "ŚW. TRÓJCY",
             "ŚWIBNIEŃSKA",
             "ŚWIDNICKA",
-            "ŚWIECHOCKIEGO",
             "ŚWIERKOWA",
             "ŚWIĘTOJAŃSKA",
             "ŚWIĘTOKRZYSKA",

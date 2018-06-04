@@ -7,6 +7,7 @@ import com.vaadin.spring.annotation.SpringUI;
 import com.vaadin.spring.annotation.SpringViewDisplay;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
+import org.prezydium.streets.ui.view.GameView;
 
 @SpringUI
 @Theme("valo")
@@ -19,4 +20,9 @@ public class StreetsUI extends UI {
     protected void init(VaadinRequest vaadinRequest) {
        setContent(mainLayout);
     }
+
+    public static void resetGame(){
+        UI.getCurrent().getNavigator().navigateTo(GameView.VIEW_NAME);
+    }
+
 }
