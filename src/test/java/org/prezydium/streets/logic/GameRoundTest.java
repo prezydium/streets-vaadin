@@ -1,10 +1,25 @@
 package org.prezydium.streets.logic;
 
 import org.assertj.core.api.Assertions;
+import org.assertj.core.util.Strings;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.junit.MockitoJUnitRunner;
+import org.prezydium.streets.ui.StreetsUI;
 import org.prezydium.streets.ui.view.GuessedLettersDisplay;
+import org.prezydium.streets.ui.view.LostWindow;
 
+@RunWith(MockitoJUnitRunner.class)
 public class GameRoundTest {
+
+    @Mock
+    LostGame lostGame;
+
+    @InjectMocks
+    GameRound gameRound;
 
     @Test
     public void shouldSuccessfullyHitLetter() {
@@ -25,6 +40,4 @@ public class GameRoundTest {
 
         Assertions.assertThat(gameRound.getActualGuessedLetters()).isEqualToIgnoringCase("xexxxxxeex");
     }
-
-
 }

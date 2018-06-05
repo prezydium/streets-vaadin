@@ -1,5 +1,6 @@
 package org.prezydium.streets.ui.view;
 
+import com.vaadin.ui.Alignment;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.VerticalLayout;
@@ -21,6 +22,7 @@ public class GuessedLettersDisplay extends VerticalLayout {
         remainingChancesLabel.setCaption(remainingChances + 10);
         guessedHitLettersDisplay.setCaption(hitLetters);
         guessedMissedLettersDisplay.setCaption(missedLetters);
+        this.setDefaultComponentAlignment(Alignment.MIDDLE_CENTER);
         addComponents(remainingChancesLabel, guessedHitLettersDisplay, guessedMissedLettersDisplay);
     }
 

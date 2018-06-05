@@ -48,6 +48,10 @@ public class GameRound {
             new LostGame().createInfoWindow(streetToGuess);
             StreetsUI.resetGame();
         }
+        if (!actualGuessedLetters.contains("X")){
+            new WonGame().guessedAll(this);
+            StreetsUI.resetGame();
+        }
     }
 
     private boolean makeGuess(Character guessedChar) {

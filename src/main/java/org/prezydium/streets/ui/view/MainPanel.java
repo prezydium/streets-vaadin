@@ -17,9 +17,10 @@ public class MainPanel extends Panel {
     }
 
     public MainPanel() {
-        guessedWord.setWidth("100%");
-        verticalLayout.setDefaultComponentAlignment(Alignment.MIDDLE_CENTER);
+        guessedWord.setSizeUndefined();
         verticalLayout.addComponent(guessedWord);
+        verticalLayout.setDefaultComponentAlignment(Alignment.MIDDLE_CENTER);
+        this.setSizeUndefined();
         this.setContent(verticalLayout);
     }
 }

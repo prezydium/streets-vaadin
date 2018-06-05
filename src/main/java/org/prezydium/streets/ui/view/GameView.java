@@ -15,7 +15,7 @@ public class GameView extends VerticalLayout implements View {
     private GameRound gameRound;
     private Label header = new Label("Ulice Gdańska");
     private MainPanel mainPanel = new MainPanel();
-    private TextField textFieldGuess = new TextField("wpisz literę i naciśnij enter:");
+    private TextField textFieldGuess = new TextField("Wpisz literę (lub inny symbol) i naciśnij enter:");
     private Button makeGuessButton = new Button("Zgadnij!", this::clickSubmitButton);
     private Button aboutButton = new Button("Wyjaśnienia", this::clickAboutButton);
     private GuessedLettersDisplay guessedLettersDisplay = new GuessedLettersDisplay();
@@ -23,6 +23,7 @@ public class GameView extends VerticalLayout implements View {
 
     public GameView() {
         gameRound = new GameRound();
+        this.setSizeUndefined();
     }
 
     private ShortcutListener shortcutListener = new ShortcutListener("Enter", ShortcutAction.KeyCode.ENTER, null) {
@@ -35,8 +36,9 @@ public class GameView extends VerticalLayout implements View {
     @Override
     public void enter(ViewChangeListener.ViewChangeEvent event) {
         mainPanel.setGuessedLetters(gameRound.getActualGuessedLetters());
-        mainPanel.setWidth("50%");
+        mainPanel.setSizeUndefined();
         setSpacing(true);
+        textFieldGuess.setMaxLength(1);
         makeGuessButton.addShortcutListener(shortcutListener);
         this.setDefaultComponentAlignment(Alignment.MIDDLE_CENTER);
         this.addComponents(header, aboutButton, guessedLettersDisplay, mainPanel, textFieldGuess, makeGuessButton, errors);

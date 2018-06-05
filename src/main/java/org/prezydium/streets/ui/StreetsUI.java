@@ -13,12 +13,9 @@ import org.prezydium.streets.ui.view.GameView;
 @Theme("valo")
 @SpringViewDisplay
 public class StreetsUI extends UI {
-
-    private VerticalLayout mainLayout = new VerticalLayout();
-
+    
     @Override
     protected void init(VaadinRequest vaadinRequest) {
-       setContent(mainLayout);
     }
 
     public static void resetGame(){
