@@ -17,6 +17,7 @@ public class MainPanel extends Panel {
     }
 
     public MainPanel() {
+        setCaption("Ukryta ulica:");
         guessedWord.setSizeUndefined();
         verticalLayout.addComponent(guessedWord);
         verticalLayout.setDefaultComponentAlignment(Alignment.MIDDLE_CENTER);

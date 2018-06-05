@@ -10,10 +10,10 @@ import com.vaadin.ui.VerticalLayout;
 import org.prezydium.streets.ui.view.GameView;
 
 @SpringUI
-@Theme("valo")
+@Theme("tests-valo-flatdark")
 @SpringViewDisplay
 public class StreetsUI extends UI {
-    
+
     @Override
     protected void init(VaadinRequest vaadinRequest) {
     }
