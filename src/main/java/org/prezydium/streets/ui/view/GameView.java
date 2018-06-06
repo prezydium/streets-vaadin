@@ -6,7 +6,6 @@ import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
 import com.vaadin.spring.annotation.SpringView;
 import com.vaadin.ui.*;
-import com.vaadin.ui.themes.ValoTheme;
 import org.prezydium.streets.logic.GameRound;
 
 @SpringView(name = GameView.VIEW_NAME)
@@ -39,12 +38,13 @@ public class GameView extends VerticalLayout implements View {
     public void enter(ViewChangeListener.ViewChangeEvent event) {
         mainPanel.setGuessedLetters(gameRound.getActualGuessedLetters());
         mainPanel.setSizeUndefined();
+        mainPanel.setStyleName("street-display");
         textFieldGuess.setMaxLength(1);
         makeGuessButton.addShortcutListener(shortcutListener);
         this.setDefaultComponentAlignment(Alignment.MIDDLE_CENTER);
         textWithButton.addComponents(textFieldGuess, makeGuessButton);
         textWithButton.setDefaultComponentAlignment(Alignment.MIDDLE_LEFT);
-        this.addComponents(header,  mainPanel,labelForTextField, textWithButton, errors,guessedLettersDisplay, aboutButton);
+        this.addComponents(header, mainPanel, labelForTextField, textWithButton, errors, guessedLettersDisplay, aboutButton);
     }
 
     private void clickSubmitButton(Button.ClickEvent clickEvent) {
@@ -58,6 +58,7 @@ public class GameView extends VerticalLayout implements View {
             textFieldGuess.focus();
         }
     }
+
     private void clickAboutButton(Button.ClickEvent clickEvent) {
         UI.getCurrent().addWindow(new AboutWindow());
     }

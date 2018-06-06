@@ -12,13 +12,12 @@ public class MainPanel extends Panel {
     private VerticalLayout verticalLayout = new VerticalLayout();
 
     public void setGuessedLetters(String s) {
-        this.guessedWord.setCaption(s);
+        this.guessedWord.setValue(s);
     }
 
     public MainPanel() {
         setCaption("Ukryta ulica:");
         guessedWord.setSizeUndefined();
-        guessedWord.setStyleName("test1", true);
         verticalLayout.addComponent(guessedWord);
         verticalLayout.setDefaultComponentAlignment(Alignment.MIDDLE_CENTER);
         this.setSizeUndefined();
