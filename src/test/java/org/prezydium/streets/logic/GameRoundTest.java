@@ -15,12 +15,6 @@ import org.prezydium.streets.ui.view.LostWindow;
 @RunWith(MockitoJUnitRunner.class)
 public class GameRoundTest {
 
-    @Mock
-    LostGame lostGame;
-
-    @InjectMocks
-    GameRound gameRound;
-
     @Test
     public void shouldSuccessfullyHitLetter() {
         String hiddenWord = "xxxxxxxxxx";
