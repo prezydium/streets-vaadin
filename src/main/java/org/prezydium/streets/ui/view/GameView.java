@@ -22,6 +22,7 @@ public class GameView extends VerticalLayout implements View {
     private Button aboutButton = new Button("Wyjaśnienia", this::clickAboutButton);
     private GuessedLettersDisplay guessedLettersDisplay = new GuessedLettersDisplay();
     private Label errors = new Label();
+    private WinWindow winWindow;
 
     public GameView() {
         gameRound = new GameRound();
@@ -60,6 +61,6 @@ public class GameView extends VerticalLayout implements View {
     }
 
     private void clickAboutButton(Button.ClickEvent clickEvent) {
-        UI.getCurrent().addWindow(new AboutWindow());
+        UI.getCurrent().addWindow(new WinWindow(gameRound));
     }
 }
