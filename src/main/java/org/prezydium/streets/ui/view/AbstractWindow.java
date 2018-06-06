@@ -5,15 +5,13 @@ import com.vaadin.ui.*;
 
 public abstract class AbstractWindow extends Window {
 
-    private VerticalLayout verticalLayout = new VerticalLayout();
-
-    private Label header = new Label("Guess Gdańsk Street:");
-    private Label body = new Label();
-    private Panel panel = new Panel(body);
+    protected VerticalLayout verticalLayout = new VerticalLayout();
+    protected Label header = new Label("Guess Gdańsk Street:");
+    protected Label body = new Label();
+    protected Panel panel = new Panel(body);
 
 
     public AbstractWindow() {
-        this.addBlurListener((FieldEvents.BlurListener) event -> UI.getCurrent().removeWindow(this));
         this.setWidth("50%");
         body.setWidth("100%");
         panel.setWidth("100%");

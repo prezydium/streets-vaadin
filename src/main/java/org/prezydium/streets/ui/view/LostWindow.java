@@ -3,16 +3,15 @@ package org.prezydium.streets.ui.view;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.Panel;
 import com.vaadin.ui.VerticalLayout;
-import com.vaadin.ui.Window;
 
-public class LostWindow extends Window {
+public class LostWindow extends AbstractWindow {
 
     private VerticalLayout verticalLayout = new VerticalLayout();
-    private Label header;
+
     private Panel streetPanel;
     private Label streetLabel;
 
-    public LostWindow(String unguessedWord){
+    public LostWindow(String unguessedWord) {
         header = new Label("Przegrałeś! To był/a:");
         streetLabel = new Label(unguessedWord);
         streetPanel = new Panel(streetLabel);
