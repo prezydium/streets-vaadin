@@ -3,9 +3,14 @@ package org.prezydium.streets.logic;
 
 import org.prezydium.streets.ui.StreetsUI;
 import org.prezydium.streets.ui.view.GuessedLettersDisplay;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+
 @Component
+@Scope(scopeName = "prototype")
 public class GameRound {
 
     private String streetToGuess = new RandomStreet().getRandomStreet();
@@ -15,6 +20,9 @@ public class GameRound {
     private static final int STARTING_CHANCES = 10;
 
     private int actualChances;
+
+    @Autowired
+    private Countdown countdown;
 
     public String getActualGuessedLetters() {
         return actualGuessedLetters;
@@ -69,6 +77,11 @@ public class GameRound {
         }
         actualGuessedLetters = stringBuilder.toString();
         return true;
+    }
+
+    @PostConstruct
+    private void startCountdown(){
+        countdown.itsTheFinalCountdown();
     }
 
 }
