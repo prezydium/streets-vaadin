@@ -21,9 +21,6 @@ public class GameRound {
 
     private int actualChances;
 
-    @Autowired
-    private Countdown countdown;
-
     public String getActualGuessedLetters() {
         return actualGuessedLetters;
     }
@@ -52,11 +49,11 @@ public class GameRound {
             hit = true;
         }
         guessedLettersDisplay.actualise(guessedChar, actualChances, hit);
-        if (actualChances <= 0){
+        if (actualChances <= 0) {
             new LostGame().createInfoWindow(streetToGuess);
             StreetsUI.resetGame();
         }
-        if (!actualGuessedLetters.contains("X")){
+        if (!actualGuessedLetters.contains("X")) {
             new WonGame().guessedAll(this);
             StreetsUI.resetGame();
         }
@@ -78,10 +75,4 @@ public class GameRound {
         actualGuessedLetters = stringBuilder.toString();
         return true;
     }
-
-    @PostConstruct
-    private void startCountdown(){
-        countdown.itsTheFinalCountdown();
-    }
-
 }
