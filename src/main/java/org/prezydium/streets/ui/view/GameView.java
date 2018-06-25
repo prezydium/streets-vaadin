@@ -23,6 +23,7 @@ public class GameView extends VerticalLayout implements View {
     private GuessedLettersDisplay guessedLettersDisplay = new GuessedLettersDisplay();
     private Label errors = new Label();
     private WinWindow winWindow;
+    private GameClock gameClock = new GameClock();
 
     public GameView() {
         gameRound = new GameRound();
@@ -45,7 +46,7 @@ public class GameView extends VerticalLayout implements View {
         this.setDefaultComponentAlignment(Alignment.MIDDLE_CENTER);
         textWithButton.addComponents(textFieldGuess, makeGuessButton);
         textWithButton.setDefaultComponentAlignment(Alignment.MIDDLE_LEFT);
-        this.addComponents(header, mainPanel, labelForTextField, textWithButton, errors, guessedLettersDisplay, aboutButton);
+        this.addComponents(header, mainPanel, labelForTextField, textWithButton, errors, guessedLettersDisplay, aboutButton, gameClock);
     }
 
     private void clickSubmitButton(Button.ClickEvent clickEvent) {
