@@ -7,6 +7,7 @@ import com.vaadin.navigator.ViewChangeListener;
 import com.vaadin.spring.annotation.SpringView;
 import com.vaadin.ui.*;
 import org.prezydium.streets.logic.GameRound;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @SpringView(name = GameView.VIEW_NAME)
 public class GameView extends VerticalLayout implements View {
@@ -23,7 +24,8 @@ public class GameView extends VerticalLayout implements View {
     private GuessedLettersDisplay guessedLettersDisplay = new GuessedLettersDisplay();
     private Label errors = new Label();
     private WinWindow winWindow;
-    private GameClock gameClock = new GameClock();
+
+    private GameClock gameClock;
 
     public GameView() {
         gameRound = new GameRound();
@@ -46,6 +48,7 @@ public class GameView extends VerticalLayout implements View {
         this.setDefaultComponentAlignment(Alignment.MIDDLE_CENTER);
         textWithButton.addComponents(textFieldGuess, makeGuessButton);
         textWithButton.setDefaultComponentAlignment(Alignment.MIDDLE_LEFT);
+        gameClock = new GameClock();
         this.addComponents(header, mainPanel, labelForTextField, textWithButton, errors, guessedLettersDisplay, aboutButton, gameClock);
     }
 
