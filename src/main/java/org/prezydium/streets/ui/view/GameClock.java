@@ -1,37 +1,24 @@
 package org.prezydium.streets.ui.view;
 
+import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
-import com.vaadin.ui.VerticalLayout;
+import org.prezydium.streets.logic.CountdownEngine;
 
 
-public class GameClock extends VerticalLayout {
+public class GameClock extends HorizontalLayout {
 
-    private volatile Label label = new Label("t");
-    private volatile Integer remainingTime = 20;
+    private Label clockDescription = new Label("Pozostało Ci : ");
+    private volatile Label labelWithTime = new Label("t");
+    private Label endOfDescription = new Label("sekund. Powodzenia!");
+    private CountdownEngine countdownEngine = new CountdownEngine();
 
     public GameClock() {
-        label.setValue(String.valueOf(remainingTime));
-        this.addComponent(label);
+        labelWithTime.setValue(String.valueOf(CountdownEngine.TIME_FOR_GUESSING));
+        this.addComponents(clockDescription, labelWithTime, endOfDescription);
         countdown();
     }
 
     private void countdown() {
-        synchronized (new Object()){
-            Thread thread = new Thread(() -> {
-                for (int i = 20; i > 0; i--) {
-                    remainingTime--;
-                    label.setValue(String.valueOf(remainingTime));
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-            });
-            thread.start();
-        }
-
-
+        countdownEngine.countdown(labelWithTime);
     }
-
 }

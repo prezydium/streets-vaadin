@@ -28,11 +28,12 @@ public class WinWindow extends AbstractWindow {
         setBodyText("Gratulacje, jesteś zwycięzcą! To była: "
                 + gameRound.getActualGuessedLetters() + ". Jeżeli chcesz dodaj się do listy zwycięzców");
         verticalLayout.addComponent(formLayout);
+        this.addCloseListener(closeEvent -> StreetsUI.resetGame());
     }
 
     private void saveWinner(Button.ClickEvent clickEvent) {
         processWinner.saveWinner(nickTextField.getValue(), gameRound.getActualChances());
         this.close();
-        StreetsUI.resetGame();
     }
+
 }

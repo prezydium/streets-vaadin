@@ -1,6 +1,7 @@
 package org.prezydium.streets.ui;
 
 
+import com.vaadin.annotations.Push;
 import com.vaadin.annotations.Theme;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.spring.annotation.SpringUI;
@@ -12,6 +13,7 @@ import org.prezydium.streets.ui.view.GameView;
 @SpringUI
 @Theme("tests-valo-flatdark")
 @SpringViewDisplay
+@Push
 public class StreetsUI extends UI {
 
     @Override
