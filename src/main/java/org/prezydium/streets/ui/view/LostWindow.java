@@ -3,6 +3,7 @@ package org.prezydium.streets.ui.view;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.Panel;
 import com.vaadin.ui.VerticalLayout;
+import org.prezydium.streets.ui.StreetsUI;
 
 public class LostWindow extends AbstractWindow {
 
@@ -24,5 +25,6 @@ public class LostWindow extends AbstractWindow {
         this.setModal(true);
         verticalLayout.addComponents(header, streetPanel);
         this.setContent(verticalLayout);
+        this.addCloseListener(closeEvent -> StreetsUI.resetGame());
     }
 }

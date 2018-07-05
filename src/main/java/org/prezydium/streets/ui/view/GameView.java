@@ -49,7 +49,7 @@ public class GameView extends VerticalLayout implements View {
         textWithButton.addComponents(textFieldGuess, makeGuessButton);
         textWithButton.setDefaultComponentAlignment(Alignment.MIDDLE_LEFT);
         gameClock = new GameClock();
-        this.addComponents(header, mainPanel, labelForTextField, textWithButton, errors, guessedLettersDisplay, aboutButton, gameClock);
+        this.addComponents(header, mainPanel, labelForTextField, textWithButton, gameClock, errors, guessedLettersDisplay, aboutButton);
     }
 
     private void clickSubmitButton(Button.ClickEvent clickEvent) {
