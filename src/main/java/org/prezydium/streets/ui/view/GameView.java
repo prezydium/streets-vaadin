@@ -65,6 +65,6 @@ public class GameView extends VerticalLayout implements View {
     }
 
     private void clickAboutButton(Button.ClickEvent clickEvent) {
-        UI.getCurrent().addWindow(new WinWindow(gameRound));
+        UI.getCurrent().addWindow(new AboutWindow());
     }
 }
