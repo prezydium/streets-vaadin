@@ -1,7 +1,7 @@
 package org.prezydium.streets.logic;
 
 import com.vaadin.ui.UI;
-import org.prezydium.streets.ui.view.LostWindow;
+import org.prezydium.streets.ui.window.LostWindow;
 
 public class LostGame {
 

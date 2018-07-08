@@ -1,4 +1,4 @@
-package org.prezydium.streets.ui.view;
+package org.prezydium.streets.ui.window;
 
 import com.vaadin.event.FieldEvents;
 import com.vaadin.ui.*;

@@ -7,7 +7,8 @@ import com.vaadin.navigator.ViewChangeListener;
 import com.vaadin.spring.annotation.SpringView;
 import com.vaadin.ui.*;
 import org.prezydium.streets.logic.GameRound;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.prezydium.streets.ui.window.AboutWindow;
+import org.prezydium.streets.ui.window.WinWindow;
 
 @SpringView(name = GameView.VIEW_NAME)
 public class GameView extends VerticalLayout implements View {

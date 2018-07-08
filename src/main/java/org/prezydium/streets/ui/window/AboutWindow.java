@@ -1,4 +1,4 @@
-package org.prezydium.streets.ui.view;
+package org.prezydium.streets.ui.window;
 
 public class AboutWindow extends AbstractWindow {
 

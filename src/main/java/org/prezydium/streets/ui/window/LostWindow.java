@@ -1,4 +1,4 @@
-package org.prezydium.streets.ui.view;
+package org.prezydium.streets.ui.window;
 
 import com.vaadin.ui.Label;
 import com.vaadin.ui.Panel;
