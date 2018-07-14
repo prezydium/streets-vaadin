@@ -13,7 +13,7 @@ import org.prezydium.streets.ui.window.WinWindow;
 @SpringView(name = GameView.VIEW_NAME)
 public class GameView extends VerticalLayout implements View {
 
-    public static final String VIEW_NAME = "";
+    public static final String VIEW_NAME = "game";
     private GameRound gameRound;
     private Label header = new Label("Ulice Gdańska");
     private MainPanel mainPanel = new MainPanel();
@@ -30,6 +30,12 @@ public class GameView extends VerticalLayout implements View {
 
     public GameView() {
         gameRound = new GameRound();
+        UI.getCurrent().getNavigator().addViewChangeListener(new ViewChangeListener() {
+            @Override
+            public boolean beforeViewChange(ViewChangeEvent event) {
+                return false;
+            }
+        });
     }
 
     private ShortcutListener shortcutListener = new ShortcutListener("Enter", ShortcutAction.KeyCode.ENTER, null) {
@@ -66,6 +72,7 @@ public class GameView extends VerticalLayout implements View {
     }
 
     private void clickAboutButton(Button.ClickEvent clickEvent) {
-        UI.getCurrent().addWindow(new AboutWindow());
+        UI.getCurrent().addWindow(new WinWindow(gameRound)); //TODO
+        //UI.getCurrent().addWindow(new AboutWindow());
     }
 }

@@ -25,14 +25,3 @@ public class WinnersTable extends VerticalLayout {
         this.addComponent(grid);
     }
 }
-
-/*        Grid<DebtTableView> grid = new Grid<>();
-        Set<DebtTableView> debtorViewList = debtorTableView.getDebtViewSet();
-        grid.setItems(debtorViewList);
-        grid.addColumn(DebtTableView::getDebtViewName).setId("Debt Name").setCaption("Debt Name");
-        grid.addColumn(DebtTableView::getUuid).setId("Debt uuid").setCaption("Debt uuid");
-        grid.addColumn(DebtTableView::getDebtViewDate).setId("Repayment Date").setCaption("Repayment Date");
-        grid.addColumn(DebtTableView::getDebtViewAmount).setId("Debt Amount").setCaption("Debt Amount");
-        grid.addColumn(DebtTableView::getSumPaymentViewAmount).setId("Debt Sum Payment").setCaption("Debt Sum Payment Amount");
-        grid.addColumn(DebtTableView::getRemainingAmountView).setId("Remaining Amount").setCaption("Remaining Amount");
-        return grid;*/
