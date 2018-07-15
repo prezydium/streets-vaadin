@@ -8,5 +8,4 @@ public class WonGame {
     public void guessedAll(GameRound gameRound){
         UI.getCurrent().addWindow(new WinWindow(gameRound));
     }
-
 }
