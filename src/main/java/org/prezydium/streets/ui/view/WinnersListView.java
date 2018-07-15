@@ -8,7 +8,7 @@ import com.vaadin.ui.VerticalLayout;
 @SpringView(name = WinnersListView.VIEW_NAME)
 public class WinnersListView extends VerticalLayout implements View {
 
-    public static final String VIEW_NAME = "toplist";
+    public static final String VIEW_NAME = "winners";
 
     private WinnersTable winnersTable;
 
