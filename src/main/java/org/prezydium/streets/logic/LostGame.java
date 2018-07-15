@@ -5,9 +5,8 @@ import org.prezydium.streets.ui.window.LostWindow;
 
 public class LostGame {
 
-    public boolean createInfoWindow(String street) {
+    public void createInfoWindow(String street) {
         UI.getCurrent().addWindow(new LostWindow(street));
-        return true;
     }
 
 }

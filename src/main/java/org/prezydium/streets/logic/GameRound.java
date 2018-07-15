@@ -9,11 +9,8 @@ import org.springframework.stereotype.Component;
 public class GameRound {
 
     private String streetToGuess = new RandomStreet().getRandomStreet();
-
     private String actualGuessedLetters;
-
     private static final int STARTING_CHANCES = 10;
-
     private int actualChances;
 
     public String getActualGuessedLetters() {
@@ -25,7 +22,7 @@ public class GameRound {
     }
 
     public GameRound() {
-        actualGuessedLetters = HideWord.hideWord(streetToGuess);
+        actualGuessedLetters = new HideWord().hideWord(streetToGuess);
         actualChances = STARTING_CHANCES;
     }
 

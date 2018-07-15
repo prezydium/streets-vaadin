@@ -3,12 +3,17 @@ package org.prezydium.streets.ui.view;
 import com.vaadin.event.ShortcutAction;
 import com.vaadin.event.ShortcutListener;
 import com.vaadin.navigator.View;
+import com.vaadin.navigator.ViewBeforeLeaveEvent;
 import com.vaadin.navigator.ViewChangeListener;
 import com.vaadin.spring.annotation.SpringView;
 import com.vaadin.ui.*;
 import org.prezydium.streets.logic.GameRound;
+import org.prezydium.streets.logic.LostGame;
 import org.prezydium.streets.ui.window.AboutWindow;
+import org.prezydium.streets.ui.window.LostWindow;
 import org.prezydium.streets.ui.window.WinWindow;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
 @SpringView(name = GameView.VIEW_NAME)
 public class GameView extends VerticalLayout implements View {
@@ -30,23 +35,6 @@ public class GameView extends VerticalLayout implements View {
 
     public GameView() {
         gameRound = new GameRound();
-        UI.getCurrent().getNavigator().addViewChangeListener(new ViewChangeListener() {
-            @Override
-            public boolean beforeViewChange(ViewChangeEvent event) {
-                return false;
-            }
-        });
-    }
-
-    private ShortcutListener shortcutListener = new ShortcutListener("Enter", ShortcutAction.KeyCode.ENTER, null) {
-        @Override
-        public void handleAction(Object o, Object o1) {
-            clickSubmitButton(new Button.ClickEvent(makeGuessButton));
-        }
-    };
-
-    @Override
-    public void enter(ViewChangeListener.ViewChangeEvent event) {
         mainPanel.setGuessedLetters(gameRound.getActualGuessedLetters());
         mainPanel.setSizeUndefined();
         mainPanel.setStyleName("street-display");
@@ -58,6 +46,13 @@ public class GameView extends VerticalLayout implements View {
         gameClock = new GameClock();
         this.addComponents(header, mainPanel, labelForTextField, textWithButton, gameClock, errors, guessedLettersDisplay, aboutButton);
     }
+
+    private ShortcutListener shortcutListener = new ShortcutListener("Enter", ShortcutAction.KeyCode.ENTER, null) {
+        @Override
+        public void handleAction(Object o, Object o1) {
+            clickSubmitButton(new Button.ClickEvent(makeGuessButton));
+        }
+    };
 
     private void clickSubmitButton(Button.ClickEvent clickEvent) {
         if (textFieldGuess.getValue() == null || textFieldGuess.getValue().isEmpty()) {

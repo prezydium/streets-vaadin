@@ -21,4 +21,5 @@ public class GameClock extends HorizontalLayout {
     private void countdown() {
         countdownEngine.countdown(labelWithTime);
     }
+
 }
